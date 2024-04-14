@@ -19,7 +19,8 @@ def init_db():
                  (id INTEGER PRIMARY KEY AUTOINCREMENT,
                  maintainer_code TEXT,
                  header TEXT,
-                 requirements TEXT)''')
+                 requirements TEXT,
+                 bundleurl TEXT)''')
     conn.commit()
     conn.close()
 
@@ -90,12 +91,13 @@ def add_app(code):
     req_data = request.get_json()
     header = req_data.get('header')
     requirements = req_data.get('requirements')
-
+    bundleurl = req_data.get('bundleurl')  # New field
+    
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     try:
         # Ensure that code, header, and requirements are cast to strings
-        c.execute("INSERT INTO apps (maintainer_code, header, requirements) VALUES (?, ?, ?)", (str(code), str(header), str(requirements)))
+        c.execute("INSERT INTO apps (maintainer_code, header, requirements, bundleurl) VALUES (?, ?, ?, ?)", (str(code), str(header), str(requirements), str(bundleurl)))
         conn.commit()
         conn.close()
         return jsonify({"message": "App added successfully"}), 201
@@ -108,7 +110,7 @@ def add_app(code):
 def get_all_apps(code):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT header, requirements FROM apps WHERE maintainer_code=?", (code,))
+    c.execute("SELECT header, requirements,bundleurl FROM apps WHERE maintainer_code=?", (code,))
     apps = c.fetchall()
     conn.close()
 
@@ -116,7 +118,8 @@ def get_all_apps(code):
     for app in apps:
         result.append({
             "header": app[0],
-            "requirements": app[1]
+            "requirements": app[1],
+            "bundleurl": app[2]
         })
 
     return jsonify(result), 200
@@ -124,18 +127,44 @@ def get_all_apps(code):
 def get_app(code, app_id):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT header, requirements FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
+    c.execute("SELECT header, requirements, bundleurl FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
     app = c.fetchone()
     conn.close()
 
     if app:
-        return jsonify({
-            "header": app[0],
-            "requirements": app[1]
-        }), 200
+        header = app[0]
+        requirements = app[1]
+        bundleurl = app[2]
+        response_data = {
+            "header": header,
+            "requirements": requirements
+        }
+        if bundleurl is not None:
+           response_data["bundleurl"] = bundleurl
+        return jsonify(response_data), 200
     else:
         return jsonify({"error": "App not found"}), 404
 
+# Endpoint to add a new variable (e.g., bundleurl) to the app with ID 1
+@app.route('/maintainers/<string:code>/apps/<int:app_id>/variables', methods=['POST'])
+def add_variable(code, app_id):
+    req_data = request.get_json()
+    variable_name = req_data.get('name')
+    variable_value = req_data.get('value')
+ 
+    # Update the app with the new variable
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    try:
+        # Construct and execute SQL query to update the variable for the specified app
+        c.execute("UPDATE apps SET {}=? WHERE maintainer_code=? AND id=?".format(variable_name), (variable_value, code, app_id))
+        conn.commit()
+        conn.close()
+        return jsonify({"message": "Variable added/updated successfully"}), 200
+    except Exception as e:
+        conn.close()
+        print("Error executing SQL query:", e)
+        return jsonify({"error": "Failed to add/update variable", "details": str(e)}), 500
 if __name__ == '__main__':
     init_db()
     app.run(debug=True)
