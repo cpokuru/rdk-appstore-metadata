@@ -199,5 +199,8 @@ def add_variable(code, app_id):
         return jsonify({"error": "Failed to add/update variable", "details": str(e)}), 500
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True)
+    #default bound to 127.0.0.1
+    #app.run(debug=True)
+    #curl -X GET http://10.0.0.70:5000/maintainers/rdk4
+    app.run(host='10.0.0.70', port=5000,debug=True)
 
