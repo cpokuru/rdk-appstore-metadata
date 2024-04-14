@@ -20,7 +20,8 @@ def init_db():
                  maintainer_code TEXT,
                  header TEXT,
                  requirements TEXT,
-                 bundleurl TEXT)''')
+                 bundleurl TEXT,
+                 FOREIGN KEY (maintainer_code) REFERENCES maintainers(code) ON DELETE CASCADE)''')
     conn.commit()
     conn.close()
 
@@ -63,6 +64,37 @@ def get_maintainer(code):
         }), 200
     else:
         return jsonify({"error": "Maintainer with code '{}' not found.".format(code)}), 404
+
+# Endpoint to delete a maintainer
+@app.route('/maintainers/<string:code>', methods=['DELETE'])
+def delete_maintainer(code):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    try:
+        # Check if the maintainer exists
+        c.execute("SELECT * FROM maintainers WHERE code=?", (code,))
+        maintainer = c.fetchone()
+        if maintainer:
+            # Delete the maintainer
+            c.execute("DELETE FROM maintainers WHERE code=?", (code,))
+            print("Maintainer deleted")
+            # Check the associated apps before deletion
+            c.execute("SELECT * FROM apps WHERE maintainer_code=?", (code,))
+            associated_apps_before = c.fetchall()
+            print("Associated apps before deletion:", associated_apps_before)
+            # Delete associated apps
+            c.execute("DELETE FROM apps WHERE maintainer_code=?", (code,))
+            print("Associated apps deleted")
+            conn.commit()
+            conn.close()
+            return jsonify({"message": "Maintainer deleted successfully"}), 200
+        else:
+            conn.close()
+            return jsonify({"error": "Maintainer with code '{}' not found.".format(code)}), 404
+    except Exception as e:
+        conn.close()
+        print("Error deleting maintainer:", e)
+        return jsonify({"error": "Failed to delete maintainer", "details": str(e)}), 500
 
 # Endpoint to get all maintainers
 @app.route('/maintainers', methods=['GET'])
