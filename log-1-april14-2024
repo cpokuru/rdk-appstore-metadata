@@ -1,0 +1,98 @@
+
+cpokur625@HQSML-1723260 mobile % curl -X POST http://127.0.0.1:5000/maintainers/rdk/apps -H 'Content-Type: application/json' -d '{ "header": { "id": "demo.id.rdk9", "version": "1.6", "icon": "http://rdk.url/rdk6.png", "name": "RDK2", "description": "Description of rdk6", "url": "http://url/rdk6", "visible": true, "encryption": false, "preferred": false, "ociImageUrl": "myregistry.local:5000/testing/rdk6", "latest" : true, "type": "rdk_apps", "category": "application", "size": "10000000", "localization": [ { "languageCode": "en", "name": "rdk application", "description": "description" } ] }, "requirements": { "dependencies": [ { "id": "1.6.0", "version": "string" } ], "platform": { "architecture": "armv7", "variant": "v1", "os": "linux" }, "hardware": { "ram": "string", "dmips": "string", "persistent": "string", "cache": "string" }, "features": [ { "name": "string", "version": "string", "required": true } ] }, "maintainer": { "name": "rdkm", "address": "address", "homepage": "http://rdkcentral", "email": "chandra1@mail.org" } }'
+{
+  "message": "App added successfully"
+}
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps  
+[
+  {
+    "bundleurl": "http://rdkcentra.com",
+    "header": "{'id': 'demo.id.rdk5', 'version': '1.5', 'icon': 'http://rdk.url/rdk5.png', 'name': 'RDK1', 'description': 'Description of rdk5', 'url': 'http://url/rdk5', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk5', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.5.0', 'version': 'string'}], 'platform': {'architecture': 'arm', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "http://rdkcentralbundle.com",
+    "header": "{'id': 'demo.id.rdk6', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "None",
+    "header": "{'id': 'demo.id.rdk7', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "http://r.com",
+    "header": "{'id': 'demo.id.rdk8', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "None",
+    "header": "{'id': 'demo.id.rdk9', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  }
+]
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps/5
+{
+  "bundleurl": "None",
+  "header": "{'id': 'demo.id.rdk9', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+  "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+}
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % curl -X POST http://127.0.0.1:5000/maintainers/rdk/apps/5/variables -H 'Content-Type: application/json' -d '{"name": "bundleurl", "value": "http://ckp.com"}'
+
+{
+  "message": "Variable added/updated successfully"
+}
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps/5
+{
+  "bundleurl": "http://ckp.com",
+  "header": "{'id': 'demo.id.rdk9', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+  "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+}
+cpokur625@HQSML-1723260 mobile % 
+cpokur625@HQSML-1723260 mobile % curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps  
+[
+  {
+    "bundleurl": "http://rdkcentra.com",
+    "header": "{'id': 'demo.id.rdk5', 'version': '1.5', 'icon': 'http://rdk.url/rdk5.png', 'name': 'RDK1', 'description': 'Description of rdk5', 'url': 'http://url/rdk5', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk5', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.5.0', 'version': 'string'}], 'platform': {'architecture': 'arm', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "http://rdkcentralbundle.com",
+    "header": "{'id': 'demo.id.rdk6', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "None",
+    "header": "{'id': 'demo.id.rdk7', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "http://r.com",
+    "header": "{'id': 'demo.id.rdk8', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  },
+  {
+    "bundleurl": "http://ckp.com",
+    "header": "{'id': 'demo.id.rdk9', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'url': 'http://url/rdk6', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'armv7', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}"
+  }
+]
+cpokur625@HQSML-1723260 mobile % 
