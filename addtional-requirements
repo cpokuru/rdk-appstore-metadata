@@ -1,5 +1,3 @@
 Missing currently
-1.delete maintainer
-2.json rpc support or API support for an external components to communicate and update params
-3.update created maintainer
-4.add new variable dynamically 
+1.json rpc support or API support for an external components to communicate and update params
+2.update created maintainer
