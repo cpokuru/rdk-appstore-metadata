@@ -96,3 +96,10 @@ cpokur625@HQSML-1723260 mobile % curl -X GET http://127.0.0.1:5000/maintainers/r
   }
 ]
 cpokur625@HQSML-1723260 mobile % 
+
+
+delete maintainer and its apps
+cpokur625@HQSML-1723260 mobile % curl -X DELETE http://127.0.0.1:5000/maintainers/rdk1
+{
+  "message": "Maintainer deleted successfully"
+}
