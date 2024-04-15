@@ -1,3 +1,14 @@
+
+1.Create maintainer
+2.Delete maintainer
+3.Add app under maintainer
+4.get all apps under maintainer
+5.get particular app under a maintainer
+6.get all maintainers
+7.get a particular maintainer details
+8.Add new variable for an App 
+
+
 # rdk-appstore-metadata
 curl -X POST   http://127.0.0.1:5000/maintainers   -H 'Content-Type: application/json'   -d '{
           "code": "rdk",
