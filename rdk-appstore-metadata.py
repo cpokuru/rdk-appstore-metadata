@@ -1,5 +1,7 @@
 from flask import Flask, jsonify, request
 import sqlite3
+import json
+import re
 
 app = Flask(__name__)
 
@@ -20,7 +22,7 @@ def init_db():
                  maintainer_code TEXT,
                  header TEXT,
                  requirements TEXT,
-                 bundleurl TEXT,
+                 testurl TEXT,
                  FOREIGN KEY (maintainer_code) REFERENCES maintainers(code) ON DELETE CASCADE)''')
     conn.commit()
     conn.close()
@@ -123,13 +125,13 @@ def add_app(code):
     req_data = request.get_json()
     header = req_data.get('header')
     requirements = req_data.get('requirements')
-    bundleurl = req_data.get('bundleurl')  # New field
+    testurl = req_data.get('testurl')  # New field
     
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     try:
         # Ensure that code, header, and requirements are cast to strings
-        c.execute("INSERT INTO apps (maintainer_code, header, requirements, bundleurl) VALUES (?, ?, ?, ?)", (str(code), str(header), str(requirements), str(bundleurl)))
+        c.execute("INSERT INTO apps (maintainer_code, header, requirements, testurl) VALUES (?, ?, ?, ?)", (str(code), str(header), str(requirements), str(testurl)))
         conn.commit()
         conn.close()
         return jsonify({"message": "App added successfully"}), 201
@@ -142,7 +144,7 @@ def add_app(code):
 def get_all_apps(code):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT header, requirements,bundleurl FROM apps WHERE maintainer_code=?", (code,))
+    c.execute("SELECT header, requirements,testurl FROM apps WHERE maintainer_code=?", (code,))
     apps = c.fetchall()
     conn.close()
 
@@ -151,7 +153,7 @@ def get_all_apps(code):
         result.append({
             "header": app[0],
             "requirements": app[1],
-            "bundleurl": app[2]
+            "testurl": app[2]
         })
 
     return jsonify(result), 200
@@ -159,25 +161,75 @@ def get_all_apps(code):
 def get_app(code, app_id):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT header, requirements, bundleurl FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
+    c.execute("SELECT header, requirements, testurl FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
     app = c.fetchone()
     conn.close()
 
     if app:
         header = app[0]
         requirements = app[1]
-        bundleurl = app[2]
+        testurl = app[2]
         response_data = {
             "header": header,
             "requirements": requirements
         }
-        if bundleurl is not None:
-           response_data["bundleurl"] = bundleurl
+        if testurl is not None:
+           response_data["testurl"] = testurl
         return jsonify(response_data), 200
     else:
         return jsonify({"error": "App not found"}), 404
 
-# Endpoint to add a new variable (e.g., bundleurl) to the app with ID 1
+
+
+import re
+
+import ast
+import json
+
+@app.route('/maintainers/<string:code>/apps/<string:app_id>', methods=['GET'])
+def get_app_by_id(code, app_id):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    
+    # Fetch all apps from the database
+    c.execute("SELECT header, requirements, testurl FROM apps")
+    apps = c.fetchall()
+    conn.close()
+
+    for app in apps:
+        header = app[0]
+        requirements = app[1]
+        testurl = app[2]
+
+        try:
+            # Convert Python literals to dictionary
+            header_dict = ast.literal_eval(header)
+            requirements_dict = ast.literal_eval(requirements)
+            
+            # Ensure valid JSON strings
+            header_json = json.dumps(header_dict)
+            requirements_json = json.dumps(requirements_dict)
+            
+            print(f"Original header: {header}")
+            print(f"Converted header dict: {header_dict}")
+            print(f"JSON header: {header_json}")
+            
+            if header_dict.get('id') == app_id:
+                response_data = {
+                    "header": header_dict,  # Return dict for header
+                    "requirements": requirements_dict  # Return dict for requirements
+                }
+                if testurl and testurl != 'None':
+                    response_data["testurl"] = testurl
+                return jsonify(response_data), 200
+        except (ValueError, SyntaxError) as e:
+            print(f"JSON decode error: {e}")
+            continue
+
+    return jsonify({"error": "App not found"}), 404
+
+
+# Endpoint to add a new variable (e.g., testurl) to the app with ID 1
 @app.route('/maintainers/<string:code>/apps/<int:app_id>/variables', methods=['POST'])
 def add_variable(code, app_id):
     req_data = request.get_json()
@@ -202,5 +254,5 @@ if __name__ == '__main__':
     #default bound to 127.0.0.1
     #app.run(debug=True)
     #curl -X GET http://10.0.0.70:5000/maintainers/rdk4
-    app.run(host='10.0.0.70', port=5000,debug=True)
+    app.run(host='127.0.0.1', port=5000,debug=True)
 
