@@ -214,3 +214,101 @@ rdkm@rdkm-OptiPlex-7020:~/rdk-appstore-metadata$ curl -X GET http://127.0.0.1:50
   }
 }
 
+
+
+//---------------------
+dkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ curl -X POST http://127.0.0.1:5000/maintainers/rdk/apps -H 'Content-Type: application/json' -d '{ "header": { "id": "demo.id.rdkb2", "version": "1.8", "icon": "http://rdk.url/rdkb2.png", "name": "rdkb2", "description": "Description of rdk5", "url": "http://url/rdkb2", "visible": true, "encryption": false, "preferred": false, "ociImageUrl": "myregistry.local:5000/testing/rdkb2", "latest" : true, "type": "rdk_apps", "category": "application", "size": "10000000", "localization": [ { "languageCode": "en", "name": "rdk application", "description": "description" } ] }, "requirements": { "dependencies": [ { "id": "1.8.0", "version": "string" } ], "platform": { "architecture": "arm", "variant": "v1", "platformname": "rpi4_reference_dunfell", "os": "linux" }, "hardware": { "ram": "string", "dmips": "string", "persistent": "string", "cache": "string" }, "features": [ { "name": "string", "version": "string", "required": true } ] }, "maintainer": { "name": "rdkm", "address": "address", "homepage": "http://rdkcentral", "email": "chandra@mail.org" } }'
+{
+  "message": "App added successfully"
+}
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps
+[
+  {
+    "header": "{'id': 'demo.id.rdk5', 'version': '1.5', 'icon': 'http://rdk.url/rdk5.png', 'name': 'RDK1', 'description': 'Description of rdk5', 'bundleurl': 'http://url/bundle5.tar.gz', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk5', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.5.0', 'version': 'string'}], 'platform': {'architecture': 'arm', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}",
+    "testurl": "None"
+  },
+  {
+    "header": "{'id': 'demo.id.rdk6', 'version': '1.6', 'icon': 'http://rdk.url/rdk6.png', 'name': 'RDK2', 'description': 'Description of rdk6', 'bundleurl': 'http://url/bundle6.tar.gz', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdk6', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.6.0', 'version': 'string'}], 'platform': {'architecture': 'arm', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}",
+    "testurl": "None"
+  },
+  {
+    "header": "{'id': 'demo.id.rdkb1', 'version': '1.7', 'icon': 'http://rdk.url/rdk7.png', 'name': 'rdkb1', 'description': 'Description of rdkb1', 'url': 'http://url/rdk7', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdkb1', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdkb application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.7.0', 'version': 'string'}], 'platform': {'architecture': 'arm', 'variant': 'v1', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}",
+    "testurl": "None"
+  },
+  {
+    "header": "{'id': 'demo.id.rdkb2', 'version': '1.8', 'icon': 'http://rdk.url/rdkb2.png', 'name': 'rdkb2', 'description': 'Description of rdk5', 'url': 'http://url/rdkb2', 'visible': True, 'encryption': False, 'preferred': False, 'ociImageUrl': 'myregistry.local:5000/testing/rdkb2', 'latest': True, 'type': 'rdk_apps', 'category': 'application', 'size': '10000000', 'localization': [{'languageCode': 'en', 'name': 'rdk application', 'description': 'description'}]}",
+    "requirements": "{'dependencies': [{'id': '1.8.0', 'version': 'string'}], 'platform': {'architecture': 'arm', 'variant': 'v1', 'platformname': 'rpi4_reference_dunfell', 'os': 'linux'}, 'hardware': {'ram': 'string', 'dmips': 'string', 'persistent': 'string', 'cache': 'string'}, 'features': [{'name': 'string', 'version': 'string', 'required': True}]}",
+    "testurl": "None"
+  }
+]
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps/demo.is.rdkb2
+{
+  "error": "App not found"
+}
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ 
+rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps/demo.id.rdkb2
+{
+  "header": {
+    "category": "application",
+    "description": "Description of rdk5",
+    "encryption": false,
+    "icon": "http://rdk.url/rdkb2.png",
+    "id": "demo.id.rdkb2",
+    "latest": true,
+    "localization": [
+      {
+        "description": "description",
+        "languageCode": "en",
+        "name": "rdk application"
+      }
+    ],
+    "name": "rdkb2",
+    "ociImageUrl": "myregistry.local:5000/testing/rdkb2",
+    "preferred": false,
+    "size": "10000000",
+    "type": "rdk_apps",
+    "url": "http://url/rdkb2",
+    "version": "1.8",
+    "visible": true
+  },
+  "requirements": {
+    "dependencies": [
+      {
+        "id": "1.8.0",
+        "version": "string"
+      }
+    ],
+    "features": [
+      {
+        "name": "string",
+        "required": true,
+        "version": "string"
+      }
+    ],
+    "hardware": {
+      "cache": "string",
+      "dmips": "string",
+      "persistent": "string",
+      "ram": "string"
+    },
+    "platform": {
+      "architecture": "arm",
+      "os": "linux",
+      "platformname": "rpi4_reference_dunfell",
+      "variant": "v1"
+    }
+  }
+}
+
