@@ -326,4 +326,36 @@ ubuntu@dac:~$ curl -X POST http://127.0.0.1:5000/maintainers/rdk/apps/2/variable
 {
   "message": "url updated successfully"
 }
-ubu
+
+ubuntu@dac:~$ curl -X GET http://127.0.0.1:5000/maintainers/rdk/apps/demo.id.rdk110
+{
+  "applications": [
+    {
+      "category": "application",
+      "description": "Description of rdk110",
+      "icon": "http://rdk.url/rdk110.png",
+      "id": "demo.id.rdk110",
+      "localization": [
+        {
+          "description": "description",
+          "languageCode": "en",
+          "name": "rdk application"
+        }
+      ],
+      "name": "RDK110",
+      "size": 10000000,
+      "type": "rdk_apps",
+      "url": "http://new.url/rdk110",
+      "version": "1.1.0"
+    }
+  ],
+  "meta": {
+    "resultSet": {
+      "count": 1,
+      "limit": 10,
+      "offset": 0,
+      "total": 1
+    }
+  }
+}
+ubuntu@dac

@@ -293,7 +293,8 @@ def get_app_by_id(code, app_id):
                 "category": header_dict.get("category"),
                 "localization": header_dict.get("localization"),
                 "id": header_dict.get("id"),
-                "version": header_dict.get("version")
+                "version": header_dict.get("version"),
+                "url": header_dict.get("url")  # Add the URL to the response
             }
 
             if testurl and testurl != 'None':
