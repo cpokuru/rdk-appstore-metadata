@@ -98,6 +98,36 @@ def delete_maintainer(code):
         print("Error deleting maintainer:", e)
         return jsonify({"error": "Failed to delete maintainer", "details": str(e)}), 500
 
+# Endpoint to delete an app under a maintainer
+@app.route('/maintainers/<string:code>/apps/<int:app_id>', methods=['DELETE'])
+def delete_app(code, app_id):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    try:
+        # Check if the maintainer exists
+        c.execute("SELECT * FROM maintainers WHERE code=?", (code,))
+        maintainer = c.fetchone()
+        if not maintainer:
+            conn.close()
+            return jsonify({"error": f"Maintainer with code '{code}' not found."}), 404
+
+        # Check if the app exists for this maintainer
+        c.execute("SELECT * FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
+        app = c.fetchone()
+        if not app:
+            conn.close()
+            return jsonify({"error": f"App with id '{app_id}' not found for maintainer '{code}'."}), 404
+
+        # Delete the app
+        c.execute("DELETE FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
+        conn.commit()
+        conn.close()
+        return jsonify({"message": f"App with id '{app_id}' deleted successfully from maintainer '{code}'."}), 200
+    except Exception as e:
+        conn.close()
+        print("Error deleting app:", e)
+        return jsonify({"error": "Failed to delete app", "details": str(e)}), 500
+
 # Endpoint to get all maintainers
 @app.route('/maintainers', methods=['GET'])
 def get_all_maintainers():
