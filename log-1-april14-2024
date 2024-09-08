@@ -318,3 +318,12 @@ rdkm@rdkm-OptiPlex-7020:~/codepush/rdk-appstore-server$ curl -X GET http://127.0
   "message": "App with id '1' deleted successfully from maintainer 'rdk'."
 }
 ubuntu@dac:~/dac/BundleGen$ 
+
+
+ubuntu@dac:~$ curl -X POST http://127.0.0.1:5000/maintainers/rdk/apps/2/variables \
+     -H "Content-Type: application/json" \
+     -d '{"name": "url", "value": "http://new.url/rdk110"}'
+{
+  "message": "url updated successfully"
+}
+ubu

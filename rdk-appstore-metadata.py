@@ -319,26 +319,43 @@ def get_app_by_id(code, app_id):
     else:
         return jsonify({"error": "App not found"}), 404
 
-# Endpoint to add a new variable (e.g., testurl) to the app with ID 1
 @app.route('/maintainers/<string:code>/apps/<int:app_id>/variables', methods=['POST'])
 def add_variable(code, app_id):
     req_data = request.get_json()
     variable_name = req_data.get('name')
     variable_value = req_data.get('value')
  
-    # Update the app with the new variable
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
     try:
-        # Construct and execute SQL query to update the variable for the specified app
-        c.execute("UPDATE apps SET {}=? WHERE maintainer_code=? AND id=?".format(variable_name), (variable_value, code, app_id))
+        if variable_name == 'url':
+            # Fetch the current header
+            c.execute("SELECT header FROM apps WHERE maintainer_code=? AND id=?", (code, app_id))
+            header_str = c.fetchone()[0]
+            
+            # Parse the header
+            header_dict = ast.literal_eval(header_str)
+            
+            # Update the URL
+            header_dict['url'] = variable_value
+            
+            # Convert back to string
+            new_header_str = str(header_dict)
+            
+            # Update the header in the database
+            c.execute("UPDATE apps SET header=? WHERE maintainer_code=? AND id=?", (new_header_str, code, app_id))
+        else:
+            # For other variables, update as before
+            c.execute(f"UPDATE apps SET {variable_name}=? WHERE maintainer_code=? AND id=?", (variable_value, code, app_id))
+        
         conn.commit()
         conn.close()
-        return jsonify({"message": "Variable added/updated successfully"}), 200
+        return jsonify({"message": f"{variable_name} updated successfully"}), 200
     except Exception as e:
         conn.close()
-        print("Error executing SQL query:", e)
-        return jsonify({"error": "Failed to add/update variable", "details": str(e)}), 500
+        print(f"Error updating {variable_name}:", e)
+        return jsonify({"error": f"Failed to update {variable_name}", "details": str(e)}), 500
+
 if __name__ == '__main__':
     init_db()
     #default bound to 127.0.0.1
