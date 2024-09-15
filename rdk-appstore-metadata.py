@@ -362,5 +362,5 @@ if __name__ == '__main__':
     #default bound to 127.0.0.1
     #app.run(debug=True)
     #curl -X GET http://10.0.0.70:5000/maintainers/rdk4
-    app.run(host='127.0.0.1', port=5000,debug=True)
-
+    #app.run(host='127.0.0.1', port=5000,debug=True)
+    app.run(debug=True, host='192.168.64.30', port=8089)
