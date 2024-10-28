@@ -171,22 +171,74 @@ def add_app(code):
 
 # Endpoint to get all apps for a maintainer
 @app.route('/maintainers/<string:code>/apps', methods=['GET'])
+#def get_all_apps(code):
+#    conn = sqlite3.connect(DB_FILE)
+#    c = conn.cursor()
+#    c.execute("SELECT header, requirements,testurl FROM apps WHERE maintainer_code=?", (code,))
+#    apps = c.fetchall()
+#    conn.close()
+
+#    result = []
+#    for app in apps:
+#        result.append({
+#            "header": app[0],
+#            "requirements": app[1],
+#            "testurl": app[2]
+#        })
+
+#    return jsonify(result), 200
+
 def get_all_apps(code):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT header, requirements,testurl FROM apps WHERE maintainer_code=?", (code,))
+    c.execute("SELECT header, requirements, testurl FROM apps WHERE maintainer_code=?", (code,))
     apps = c.fetchall()
     conn.close()
 
-    result = []
+    result = {
+        "applications": [],
+        "meta": {
+            "resultSet": {
+                "count": len(apps),
+                "offset": 0,
+                "limit": 10,  # Adjust based on your pagination requirements
+                "total": len(apps)
+            }
+        }
+    }
+
     for app in apps:
-        result.append({
-            "header": app[0],
-            "requirements": app[1],
-            "testurl": app[2]
-        })
+        try:
+            # Safely parse 'header' and 'requirements' with ast.literal_eval
+            header = ast.literal_eval(app[0])
+            requirements = ast.literal_eval(app[1])
+
+            application_data = {
+                "id": header.get("id"),
+                "version": header.get("version"),
+                "icon": header.get("icon"),
+                "name": header.get("name"),
+                "description": header.get("description"),
+                "url": header.get("url"),
+                "type": "application/vnd.rdk-app.dac.native",
+                "category": header.get("category"),
+                "localisations": [
+                    {
+                        "languageCode": loc.get("languageCode"),
+                        "name": loc.get("name"),
+                        "description": loc.get("description")
+                    } for loc in header.get("localization", [])
+                ]
+            }
+
+            result["applications"].append(application_data)
+
+        except (ValueError, SyntaxError) as e:
+            # Log the error and continue with the next app
+            print(f"Error parsing JSON for app: {app[0]} or {app[1]}. Error: {e}")
 
     return jsonify(result), 200
+
 @app.route('/maintainers/<string:code>/apps/<int:app_id>', methods=['GET'])
 def get_app(code, app_id):
     conn = sqlite3.connect(DB_FILE)
@@ -217,63 +269,6 @@ import ast
 import json
 
 @app.route('/maintainers/<string:code>/apps/<string:app_id>', methods=['GET'])
-#def get_app_by_id(code, app_id):
-#    conn = sqlite3.connect(DB_FILE)
-#    c = conn.cursor()
-
-    # Fetch all apps from the database
-#    c.execute("SELECT * FROM apps")
-#    all_apps = c.fetchall()
-
-#    conn.close()
-
-    # Initialize variables to store the found application details
-#    application = None
-
-    # Iterate through fetched apps to find the matching app_id
-#    for app_data in all_apps:
-#        id_, maintainer_code, header_str, requirements_str, testurl = app_data
-        
-        # Convert header from string to dictionary
-#        header_dict = ast.literal_eval(header_str)
-
-#        if header_dict.get("id") == app_id:
-#            application = {
-#                "icon": header_dict.get("icon"),
-#                "name": header_dict.get("name"),
-#                "description": header_dict.get("description"),
-#                "type": header_dict.get("type"),
-#                "size": int(header_dict.get("size", 0)),  # Convert size to integer if applicable
-#                "category": header_dict.get("category"),
-#                "localization": header_dict.get("localization"),
-#                "id": header_dict.get("id"),
-#                "version": header_dict.get("version"),
-#                "url": header_dict.get("url")  # Add the URL to the response
-#            }
-#
-#            if testurl and testurl != 'None':
-#                application["testurl"] = testurl
-
-#            break  # Exit loop once the matching app_id is found
-
-#    if application:
-        # Prepare response data
-#        response_data = {
-#            "applications": [application],
-#            "meta": {
-#                "resultSet": {
-#                    "count": 1,
-#                    "offset": 0,
-#                    "limit": 10,  # Modify based on your pagination logic
-#                    "total": 1
-#                }
-#            }
-#        }
-
-#        return jsonify(response_data), 200
-#    else:
-#        return jsonify({"error": "App not found"}), 404
-
 def get_app_by_id(code, app_id):
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
