@@ -321,6 +321,58 @@ def get_app_by_id(code, app_id):
     else:
         return jsonify({"error": "App not found"}), 404
 
+#App id and device name
+@app.route('/maintainers/<string:code>/apps/<string:app_id>/<string:device>', methods=['GET'])
+def get_app_by_id_and_device(code, app_id, device):
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+
+    # Update query to use maintainer_code if code column does not exist
+    query = """
+    SELECT header, requirements, testurl FROM apps 
+    WHERE header LIKE ? 
+      AND requirements LIKE ?
+      AND maintainer_code = ?
+    """
+    c.execute(query, (f'%{app_id}%', f'%{device}%', code))
+    app_data = c.fetchone()
+
+    conn.close()
+
+    if app_data:
+        header_str, requirements_str, testurl = app_data
+
+        # Convert header and requirements from string to dictionary
+        header_dict = ast.literal_eval(header_str)
+        requirements_dict = ast.literal_eval(requirements_str) if requirements_str else {}
+
+        # Build the response structure
+        application_data = {
+            "header": header_dict,  # Pulls all header fields directly
+            "requirements": {
+                "dependencies": requirements_dict.get("dependencies"),
+                "platform": requirements_dict.get("platform", {}),
+                "hardware": requirements_dict.get("hardware", {}),
+                "features": requirements_dict.get("features")
+            },
+            "maintainer": {
+                "code": code,
+                "name": requirements_dict.get("maintainerName"),
+                "address": requirements_dict.get("maintainerAddress"),
+                "homepage": requirements_dict.get("maintainerHomepage"),
+                "email": requirements_dict.get("maintainerEmail")
+            },
+            "versions": [{"version": header_dict.get("version")}]
+        }
+
+        # Add test URL if it exists and is not 'None'
+        if testurl and testurl != 'None':
+            application_data["testurl"] = testurl
+
+        return jsonify(application_data), 200
+    else:
+        return jsonify({"error": "App not found"}), 404
+
 
 @app.route('/maintainers/<string:code>/apps/<int:app_id>/variables', methods=['POST'])
 def add_variable(code, app_id):
