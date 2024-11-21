@@ -189,9 +189,30 @@ def add_app(code):
 #    return jsonify(result), 200
 
 def get_all_apps(code):
+    platform = request.args.get("platform")
+    category = request.args.get("category")
+    print(platform)
+    print(category)
     conn = sqlite3.connect(DB_FILE)
     c = conn.cursor()
-    c.execute("SELECT header, requirements, testurl FROM apps WHERE maintainer_code=?", (code,))
+    # Build the query dynamically based on provided query parameters
+    query = "SELECT header, requirements, testurl FROM apps WHERE maintainer_code=?"
+    params = [code]
+    print("Executing0 SQL query:", query)
+    print("With0 parameters:", params)
+
+    if platform:
+        query += " AND requirements LIKE ?"
+        params.append(f"%{platform}%")
+
+    #if category:
+    #    query += " AND header LIKE ?"
+    #    params.append(f"%\"category\": \"{category}\"%")
+    print("Executing SQL query:", query)
+    print("With parameters:", params)
+    
+    c.execute(query, params)
+    #c.execute("SELECT header, requirements, testurl FROM apps WHERE maintainer_code=?", (code,))
     apps = c.fetchall()
     conn.close()
 
