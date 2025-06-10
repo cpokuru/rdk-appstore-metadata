@@ -149,6 +149,108 @@ def get_all_maintainers():
 
     return jsonify(result), 200
 
+
+# Add this endpoint to your Flask app
+
+@app.route('/apps', methods=['GET'])
+def get_all_apps_global():
+    platform_name = request.args.get("platformName")
+    firmware_ver = request.args.get("firmwareVer")
+    category = request.args.get("category")
+
+    print(f"Global search - platformName: {platform_name}, firmwareVer: {firmware_ver}")
+
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+
+    # Get all apps from all maintainers
+    c.execute("SELECT * FROM apps")
+    all_apps = c.fetchall()
+    conn.close()
+
+    print(f"Found {len(all_apps)} total apps across all maintainers")
+
+    filtered_apps = []
+
+    # Filter apps based on query parameters
+    for app_data in all_apps:
+        id_, maintainer_code, header_str, requirements_str, testurl = app_data
+
+        try:
+            # Convert header and requirements from string to dictionary
+            header_dict = ast.literal_eval(header_str)
+            requirements_dict = ast.literal_eval(requirements_str) if requirements_str else {}
+
+            # Check platform requirements if platformName is provided
+            if platform_name:
+                platform_info = requirements_dict.get("platform", {})
+                if isinstance(platform_info, dict):
+                    platform_name_in_req = platform_info.get("device")
+                    if platform_name_in_req and platform_name_in_req.lower() != platform_name.lower():
+                        continue  # Skip this app if platform doesn't match
+                else:
+                    continue  # Skip if platform info is not properly formatted
+
+            # Check firmware version if provided
+            if firmware_ver:
+                platform_info = requirements_dict.get("platform", {})
+                if isinstance(platform_info, dict):
+                    required_firmware = platform_info.get("firmware")
+                    if required_firmware and required_firmware != firmware_ver:
+                        continue  # Skip this app if firmware version doesn't match
+
+            # Check category if provided
+            if category:
+                app_category = header_dict.get("category")
+                if app_category and app_category.lower() != category.lower():
+                    continue  # Skip this app if category doesn't match
+
+            # Build application data structure
+            application_data = {
+                "id": header_dict.get("id"),
+                "version": header_dict.get("version"),
+                "icon": header_dict.get("icon"),
+                "name": header_dict.get("name"),
+                "description": header_dict.get("description"),
+                "url": header_dict.get("url"),
+                "type": "application/vnd.rdk-app.dac.native",
+                "category": header_dict.get("category"),
+                "maintainer": maintainer_code,  # Include maintainer info
+                "localisations": [
+                    {
+                        "languageCode": loc.get("languageCode"),
+                        "name": loc.get("name"),
+                        "description": loc.get("description")
+                    } for loc in header_dict.get("localization", [])
+                ] if header_dict.get("localization") else []
+            }
+
+            # Add testurl if available
+            if testurl and testurl != 'None':
+                application_data["testurl"] = testurl
+
+            filtered_apps.append(application_data)
+
+        except (ValueError, SyntaxError) as e:
+            print(f"Error parsing JSON for app: {header_str} or {requirements_str}. Error: {e}")
+            continue
+
+    # Build response structure
+    result = {
+        "applications": filtered_apps,
+        "meta": {
+            "resultSet": {
+                "count": len(filtered_apps),
+                "offset": 0,
+                "limit": 100,  # Adjust based on your pagination requirements
+                "total": len(filtered_apps)
+            }
+        }
+    }
+
+    print(f"Returning {len(filtered_apps)} filtered apps")
+    return jsonify(result), 200
+
 # Endpoint to add a new app for a maintainer
 @app.route('/maintainers/<string:code>/apps', methods=['POST'])
 def add_app(code):
@@ -433,4 +535,4 @@ if __name__ == '__main__':
     #app.run(debug=True)
     #curl -X GET http://10.0.0.70:5000/maintainers/rdk4
     #app.run(host='127.0.0.1', port=5000,debug=True)
-    app.run(debug=True, host='192.168.64.47', port=8089)
+    app.run(debug=True, host='192.168.64.4', port=8089)
