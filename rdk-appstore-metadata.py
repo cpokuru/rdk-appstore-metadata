@@ -150,7 +150,113 @@ def get_all_maintainers():
     return jsonify(result), 200
 
 
-# Add this endpoint to your Flask app
+@app.route('/apps/<string:app_id>', methods=['GET'])
+def get_app_global(app_id):
+    platform_name = request.args.get('platformName')  # Use platformName to match your curl
+    firmware_ver = request.args.get('firmwareVer')
+    
+    print(f"\n=== Global app search ===")
+    print(f"Looking for app_id: {app_id}")
+    print(f"platformName: {platform_name}")
+    print(f"firmwareVer: {firmware_ver}")
+    
+    conn = sqlite3.connect(DB_FILE)
+    c = conn.cursor()
+    
+    # Fetch all apps from all maintainers
+    c.execute("SELECT * FROM apps")
+    all_apps = c.fetchall()
+    print(f"Found {len(all_apps)} total apps across all maintainers")
+    
+    conn.close()
+
+    # Search for the app across all maintainers
+    for app_data in all_apps:
+        id_, maintainer_code, header_str, requirements_str, testurl = app_data
+        
+        try:
+            # Convert header and requirements from string to dictionary
+            header_dict = ast.literal_eval(header_str)
+            requirements_dict = ast.literal_eval(requirements_str) if requirements_str else {}
+            
+            print(f"\n--- Checking app ---")
+            print(f"Current app id: {header_dict.get('id')} from maintainer: {maintainer_code}")
+            
+            # Check if app_id matches
+            if header_dict.get("id") == app_id:
+                print("Found matching app_id!")
+                print(f"Requirements dict: {requirements_dict}")
+                
+                # Check platform requirements if platform is provided
+                if platform_name:
+                    platform_info = requirements_dict.get("platform", {})
+                    print(f"Platform info from requirements: {platform_info}")
+                    
+                    if isinstance(platform_info, dict):
+                        platform_name_in_req = platform_info.get("device")
+                        print(f"Platform name in requirements: {platform_name_in_req}")
+                        print(f"Platform name from request: {platform_name}")
+                        
+                        if platform_name_in_req and platform_name_in_req.lower() != platform_name.lower():
+                            print("Platform doesn't match - continuing to next app")
+                            continue
+                    else:
+                        print(f"Platform info is not a dict: {platform_info}")
+                        continue
+
+                # Check firmware version if provided
+                if firmware_ver:
+                    platform_info = requirements_dict.get("platform", {})
+                    if isinstance(platform_info, dict):
+                        required_firmware = platform_info.get("firmware")
+                        print(f"Required firmware: {required_firmware}")
+                        print(f"Requested firmware: {firmware_ver}")
+                        
+                        if required_firmware and required_firmware != firmware_ver:
+                            print("Firmware version doesn't match - continuing to next app")
+                            continue
+
+                # Build the response structure
+                application_data = {
+                    "header": header_dict,
+                    "requirements": {
+                        "dependencies": requirements_dict.get("dependencies"),
+                        "platform": requirements_dict.get("platform", {}),
+                        "hardware": requirements_dict.get("hardware", {}),
+                        "features": requirements_dict.get("features")
+                    },
+                    "maintainer": {
+                        "code": maintainer_code,
+                        "name": requirements_dict.get("maintainerName"),
+                        "address": requirements_dict.get("maintainerAddress"),
+                        "homepage": requirements_dict.get("maintainerHomepage"),
+                        "email": requirements_dict.get("maintainerEmail")
+                    },
+                    "versions": [{"version": header_dict.get("version")}]
+                }
+
+                if testurl and testurl != 'None':
+                    application_data["testurl"] = testurl
+
+                print("Successfully built application_data")
+                return jsonify(application_data), 200
+                
+        except (ValueError, SyntaxError) as e:
+            print(f"Error parsing JSON for app: {header_str} or {requirements_str}. Error: {e}")
+            continue
+
+    # App not found
+    error_msg = f"App '{app_id}' not found"
+    if platform_name or firmware_ver:
+        filters = []
+        if platform_name:
+            filters.append(f"platform {platform_name}")
+        if firmware_ver:
+            filters.append(f"firmware {firmware_ver}")
+        error_msg += f" for {' and '.join(filters)}"
+    
+    print(f"Returning error: {error_msg}")
+    return jsonify({"error": error_msg}), 404
 
 @app.route('/apps', methods=['GET'])
 def get_all_apps_global():
@@ -250,6 +356,8 @@ def get_all_apps_global():
 
     print(f"Returning {len(filtered_apps)} filtered apps")
     return jsonify(result), 200
+
+
 
 # Endpoint to add a new app for a maintainer
 @app.route('/maintainers/<string:code>/apps', methods=['POST'])
