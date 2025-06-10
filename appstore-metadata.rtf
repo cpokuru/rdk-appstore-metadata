@@ -1,0 +1,2176 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;\f1\fnil\fcharset0 HelveticaNeue;\f2\froman\fcharset0 Times-Roman;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red18\green31\blue60;\red255\green255\blue255;
+\red4\green57\blue192;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;\cssrgb\c9020\c16863\c30196;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c0\c32157\c80000;\cssrgb\c0\c0\c0;}
+\margl1440\margr1440\vieww23920\viewh12620\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \CocoaLigature0 \
+https://wiki.rdkcentral.com/display/RDKM/Native+DAC+Applications\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \outl0\strokewidth0 \strokec3 Request:\'a0
+\f0 curl -X GET "{\field{\*\fldinst{HYPERLINK "http://asms-api-1852129899.eu-central-1.elb.amazonaws.com:8080/apps?platform=arm%3Av7%3Alinux&category=application"}}{\fldrslt \cf5 \strokec5 http://asms-api-1852129899.eu-central-1.elb.amazonaws.com:8080/apps?platform=arm%3Av7%3Alinux&category=application}}" -H "accept: application/json"\
+\
+
+\fs22 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \outl0\strokewidth0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&category=application" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk510", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk510", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK510", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+      "version": "5.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdkapp511", \
+      "icon": "http://rdk.url/rdkapp511.png", \
+      "id": "demo.id.rdkapp511", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDKAPP511", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDKAPP511.tar.gz", \
+      "version": "5.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube", \
+      "icon": "http://rdk.url/youtube.png", \
+      "id": "demo.id.youtube", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube.tar.gz", \
+      "version": "1.7.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube1", \
+      "icon": "http://rdk.url/youtube1.png", \
+      "id": "demo.id.youtube1", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube1", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+      "version": "1.8.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 4, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 4\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+//====================================================\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&category=application" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk110", \
+      "icon": "http://rdk.url/rdk110.png", \
+      "id": "demo.id.rdk110", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK110", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+      "version": "1.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk210", \
+      "icon": "http://rdk.url/rdk210.png", \
+      "id": "demo.id.rdk210", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK210", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+      "version": "2.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk211", \
+      "icon": "http://rdk.url/rdk211.png", \
+      "id": "demo.id.rdk211", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK211", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK211.tar.gz", \
+      "version": "2.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk310", \
+      "icon": "http://rdk.url/rdk310.png", \
+      "id": "demo.id.rdk310", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK310", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK310.tar.gz", \
+      "version": "3.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk111", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk111", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK111", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://url/rdk111", \
+      "version": "1.1.1"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 5, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 5\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+\
+//============\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+i % curl -X GET "http://192.168.64.4:8089/apps"                                                          \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk110", \
+      "icon": "http://rdk.url/rdk110.png", \
+      "id": "demo.id.rdk110", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK110", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+      "version": "1.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk210", \
+      "icon": "http://rdk.url/rdk210.png", \
+      "id": "demo.id.rdk210", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK210", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+      "version": "2.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk211", \
+      "icon": "http://rdk.url/rdk211.png", \
+      "id": "demo.id.rdk211", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK211", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK211.tar.gz", \
+      "version": "2.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk310", \
+      "icon": "http://rdk.url/rdk310.png", \
+      "id": "demo.id.rdk310", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK310", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK310.tar.gz", \
+      "version": "3.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk111", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk111", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK111", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://url/rdk111", \
+      "version": "1.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk510", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk510", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK510", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+      "version": "5.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdkapp511", \
+      "icon": "http://rdk.url/rdkapp511.png", \
+      "id": "demo.id.rdkapp511", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDKAPP511", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDKAPP511.tar.gz", \
+      "version": "5.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube", \
+      "icon": "http://rdk.url/youtube.png", \
+      "id": "demo.id.youtube", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube.tar.gz", \
+      "version": "1.7.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube1", \
+      "icon": "http://rdk.url/youtube1.png", \
+      "id": "demo.id.youtube1", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube1", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+      "version": "1.8.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 9, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 9\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+//=====================\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+pi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=rdkb"                      \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk510", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk510", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK510", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+      "version": "5.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdkapp511", \
+      "icon": "http://rdk.url/rdkapp511.png", \
+      "id": "demo.id.rdkapp511", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDKAPP511", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDKAPP511.tar.gz", \
+      "version": "5.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube", \
+      "icon": "http://rdk.url/youtube.png", \
+      "id": "demo.id.youtube", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube.tar.gz", \
+      "version": "1.7.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube1", \
+      "icon": "http://rdk.url/youtube1.png", \
+      "id": "demo.id.youtube1", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube1", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+      "version": "1.8.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 4, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 4\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&firmwareVer=rdkb" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk110", \
+      "icon": "http://rdk.url/rdk110.png", \
+      "id": "demo.id.rdk110", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK110", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+      "version": "1.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk210", \
+      "icon": "http://rdk.url/rdk210.png", \
+      "id": "demo.id.rdk210", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK210", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+      "version": "2.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk211", \
+      "icon": "http://rdk.url/rdk211.png", \
+      "id": "demo.id.rdk211", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK211", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK211.tar.gz", \
+      "version": "2.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk310", \
+      "icon": "http://rdk.url/rdk310.png", \
+      "id": "demo.id.rdk310", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK310", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK310.tar.gz", \
+      "version": "3.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk111", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk111", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK111", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://url/rdk111", \
+      "version": "1.1.1"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 5, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 5\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+//===================================================\
+\
+bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "error": "App 'demo.id.youtube' not found for platform rpi4_reference_dunfell and firmware rdkb"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube?platformName=ah212&firmwareVer=rdkb"                 \
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of youtube", \
+    "encryption": false, \
+    "icon": "http://rdk.url/youtube.png", \
+    "id": "demo.id.youtube", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "youtube", \
+    "ociImageUrl": "myregistry.local:5000/testing/youtube", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/youtube.tar.gz", \
+    "version": "1.7.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.7.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.7.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+//==============\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk110?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "error": "App 'demo.id.rdk110' not found for platform ah212 and firmware rdkb"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk110?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk110", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk110.png", \
+    "id": "demo.id.rdk110", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK110", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK110.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+    "version": "1.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+\
+//========================add firmware version variable \
+\pard\pardeftab720\partightenfactor0
+
+\f2\fs29\fsmilli14667 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 UPDATE apps\
+SET requirements = REPLACE(\
+\'a0\'a0\'a0 requirements,\
+\'a0\'a0\'a0 "'variant': 'v1'",\
+\'a0\'a0\'a0 "'variant': 'v1', 'firmwareVersion': 'rdkb'"\
+)\
+WHERE requirements LIKE "%'variant': 'v1'%";\
+\'a0\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\fs22 \cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+//====\
+\
+ % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk110?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk110", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk110.png", \
+    "id": "demo.id.rdk110", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK110", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK110.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+    "version": "1.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "rdkb", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+\
+//==========\
+st.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps"                                                                    \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk110", \
+      "icon": "http://rdk.url/rdk110.png", \
+      "id": "demo.id.rdk110", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK110", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+      "version": "1.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk210", \
+      "icon": "http://rdk.url/rdk210.png", \
+      "id": "demo.id.rdk210", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK210", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+      "version": "2.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk211", \
+      "icon": "http://rdk.url/rdk211.png", \
+      "id": "demo.id.rdk211", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK211", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK211.tar.gz", \
+      "version": "2.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk310", \
+      "icon": "http://rdk.url/rdk310.png", \
+      "id": "demo.id.rdk310", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK310", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK310.tar.gz", \
+      "version": "3.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk111", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk111", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK111", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://url/rdk111", \
+      "version": "1.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdk510", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk510", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK510", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+      "version": "5.1.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of rdkapp511", \
+      "icon": "http://rdk.url/rdkapp511.png", \
+      "id": "demo.id.rdkapp511", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDKAPP511", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDKAPP511.tar.gz", \
+      "version": "5.1.1"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube", \
+      "icon": "http://rdk.url/youtube.png", \
+      "id": "demo.id.youtube", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube.tar.gz", \
+      "version": "1.7.0"\
+    \}, \
+    \{\
+      "category": "application", \
+      "description": "Description of youtube1", \
+      "icon": "http://rdk.url/youtube1.png", \
+      "id": "demo.id.youtube1", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube1", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+      "version": "1.8.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 9, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 9\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk110?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk110", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk110.png", \
+    "id": "demo.id.rdk110", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK110", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK110.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+    "version": "1.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "v1.0", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk210?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk210", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk210.png", \
+    "id": "demo.id.rdk210", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK210", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK210.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+    "version": "2.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk1", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "2.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "v2.0", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "2.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk211?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk211", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk211.png", \
+    "id": "demo.id.rdk211", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK211", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK211.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK211.tar.gz", \
+    "version": "2.1.1", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk1", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "2.1.1", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "v2.1", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "2.1.1"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk310?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk310", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk310.png", \
+    "id": "demo.id.rdk310", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK310", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK310.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK310.tar.gz", \
+    "version": "3.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "3.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "v3.0", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "3.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk111?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk111", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk111.png", \
+    "id": "demo.id.rdk111", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK111", \
+    "ociImageUrl": "myregistry.local:5000/testing/rdk111", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://url/rdk111", \
+    "version": "1.1.1", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.1.1", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "v1.1", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.1.1"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk510?platformName=rpi4_reference_dunfell&firmwareVer=rdkb"\
+\{\
+  "error": "App 'demo.id.rdk510' not found for platform rpi4_reference_dunfell and firmware rdkb"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+//========\
+\
+t.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk510?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk510", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk111.png", \
+    "id": "demo.id.rdk510", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK510", \
+    "ociImageUrl": "myregistry.local:5000/testing/rdk510", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+    "version": "5.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "5.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "v5.0", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "5.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk511?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "error": "App 'demo.id.rdk511' not found for platform ah212 and firmware rdkb"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk510?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk510", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk111.png", \
+    "id": "demo.id.rdk510", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK510", \
+    "ociImageUrl": "myregistry.local:5000/testing/rdk510", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+    "version": "5.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "5.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "v5.0", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "5.1.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdkapp511?platformName=ah212&firmwareVer=rdkb" \
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdkapp511", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdkapp511.png", \
+    "id": "demo.id.rdkapp511", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDKAPP511", \
+    "ociImageUrl": "myregistry.local:5000/testing/rdkapp511", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDKAPP511.tar.gz", \
+    "version": "5.1.1", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "5.1.1", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "v5.1", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "5.1.1"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.yputube?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "error": "App 'demo.id.yputube' not found for platform ah212 and firmware rdkb"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of youtube", \
+    "encryption": false, \
+    "icon": "http://rdk.url/youtube.png", \
+    "id": "demo.id.youtube", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "youtube", \
+    "ociImageUrl": "myregistry.local:5000/testing/youtube", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/youtube.tar.gz", \
+    "version": "1.7.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.7.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "rdkb", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.7.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube1?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of youtube1", \
+    "encryption": false, \
+    "icon": "http://rdk.url/youtube1.png", \
+    "id": "demo.id.youtube1", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "youtube1", \
+    "ociImageUrl": "myregistry.local:5000/testing/youtube1", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+    "version": "1.8.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.8.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "v1.8", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.8.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+\
+//\'97\
+J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=rdkb" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of youtube", \
+      "icon": "http://rdk.url/youtube.png", \
+      "id": "demo.id.youtube", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube.tar.gz", \
+      "version": "1.7.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=v1.8" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of youtube1", \
+      "icon": "http://rdk.url/youtube1.png", \
+      "id": "demo.id.youtube1", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "youtube1", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+      "version": "1.8.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=v1.0" \
+\{\
+  "applications": [], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 0, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 0\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=v5.1" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdkapp511", \
+      "icon": "http://rdk.url/rdkapp511.png", \
+      "id": "demo.id.rdkapp511", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDKAPP511", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDKAPP511.tar.gz", \
+      "version": "5.1.1"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=v5.0" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk510", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk510", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk2", \
+      "name": "RDK510", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK510.tar.gz", \
+      "version": "5.1.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=ah212&firmwareVer=v1.1" \
+\{\
+  "applications": [], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 0, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 0\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&firmwareVer=v1.1" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk111", \
+      "icon": "http://rdk.url/rdk111.png", \
+      "id": "demo.id.rdk111", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK111", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://url/rdk111", \
+      "version": "1.1.1"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&firmwareVer=v1.0" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk110", \
+      "icon": "http://rdk.url/rdk110.png", \
+      "id": "demo.id.rdk110", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk", \
+      "name": "RDK110", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK110.tar.gz", \
+      "version": "1.1.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&firmwareVer=v2.0" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk210", \
+      "icon": "http://rdk.url/rdk210.png", \
+      "id": "demo.id.rdk210", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK210", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+      "version": "2.1.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&firmwareVer=rdkb" \
+\{\
+  "applications": [], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 0, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 0\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps?platformName=rpi4_reference_dunfell&firmwareVer=v2.0" \
+\{\
+  "applications": [\
+    \{\
+      "category": "application", \
+      "description": "Description of rdk210", \
+      "icon": "http://rdk.url/rdk210.png", \
+      "id": "demo.id.rdk210", \
+      "localisations": [\
+        \{\
+          "description": "description", \
+          "languageCode": "en", \
+          "name": "rdk application"\
+        \}\
+      ], \
+      "maintainer": "rdk1", \
+      "name": "RDK210", \
+      "type": "application/vnd.rdk-app.dac.native", \
+      "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+      "version": "2.1.0"\
+    \}\
+  ], \
+  "meta": \{\
+    "resultSet": \{\
+      "count": 1, \
+      "limit": 100, \
+      "offset": 0, \
+      "total": 1\
+    \}\
+  \}\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % \
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of youtube", \
+    "encryption": false, \
+    "icon": "http://rdk.url/youtube.png", \
+    "id": "demo.id.youtube", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "youtube", \
+    "ociImageUrl": "myregistry.local:5000/testing/youtube", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/youtube.tar.gz", \
+    "version": "1.7.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.7.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "rdkb", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.7.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube1?platformName=ah212&firmwareVer=rdkb"\
+\{\
+  "error": "App 'demo.id.youtube1' not found for platform ah212 and firmware rdkb"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.youtube1?platformName=ah212&firmwareVer=v1.8"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of youtube1", \
+    "encryption": false, \
+    "icon": "http://rdk.url/youtube1.png", \
+    "id": "demo.id.youtube1", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "youtube1", \
+    "ociImageUrl": "myregistry.local:5000/testing/youtube1", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/youtube1.tar.gz", \
+    "version": "1.8.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk2", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "1.8.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "armv7", \
+      "device": "ah212", \
+      "firmwareVersion": "v1.8", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "1.8.0"\
+    \}\
+  ]\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk210platformName=ah212&firmwareVer=v1.8"\
+\{\
+  "error": "App 'demo.id.rdk210platformName=ah212&firmwareVer=v1.8' not found"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk210platformName=ah212&firmwareVer=v2.0"\
+\{\
+  "error": "App 'demo.id.rdk210platformName=ah212&firmwareVer=v2.0' not found"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk210platformName=rpi4_reference_dunfell&firmwareVer=v2.0"\
+\{\
+  "error": "App 'demo.id.rdk210platformName=rpi4_reference_dunfell&firmwareVer=v2.0' not found"\
+\}\
+cpokur625@cable.comcast.com@HQSML-KK2RXWP9J4 bpi % curl -X GET "http://192.168.64.4:8089/apps/demo.id.rdk210?platformName=rpi4_reference_dunfell&firmwareVer=v2.0"\
+\{\
+  "header": \{\
+    "category": "application", \
+    "description": "Description of rdk210", \
+    "encryption": false, \
+    "icon": "http://rdk.url/rdk210.png", \
+    "id": "demo.id.rdk210", \
+    "latest": true, \
+    "localization": [\
+      \{\
+        "description": "description", \
+        "languageCode": "en", \
+        "name": "rdk application"\
+      \}\
+    ], \
+    "name": "RDK210", \
+    "ociImageUrl": "/home/ubuntu/dac/ociimages/RDK210.tar", \
+    "preferred": false, \
+    "size": "10000000", \
+    "type": "rdk_apps", \
+    "url": "http://192.168.64.47/files/RDK210.tar.gz", \
+    "version": "2.1.0", \
+    "visible": true\
+  \}, \
+  "maintainer": \{\
+    "address": null, \
+    "code": "rdk1", \
+    "email": null, \
+    "homepage": null, \
+    "name": null\
+  \}, \
+  "requirements": \{\
+    "dependencies": [\
+      \{\
+        "id": "2.1.0", \
+        "version": "string"\
+      \}\
+    ], \
+    "features": [\
+      \{\
+        "name": "string", \
+        "required": true, \
+        "version": "string"\
+      \}\
+    ], \
+    "hardware": \{\
+      "cache": "string", \
+      "dmips": "string", \
+      "persistent": "string", \
+      "ram": "string"\
+    \}, \
+    "platform": \{\
+      "architecture": "arm", \
+      "device": "rpi4_reference_dunfell", \
+      "firmwareVersion": "v2.0", \
+      "os": "linux", \
+      "variant": "v1"\
+    \}\
+  \}, \
+  "versions": [\
+    \{\
+      "version": "2.1.0"\
+    \}\
+  ]\
+\}\
+\
+\
+}
